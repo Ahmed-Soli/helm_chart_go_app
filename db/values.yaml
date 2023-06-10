@@ -1,0 +1,11 @@
+app:
+  replicas: 1
+  container:
+    port: 3306
+    image: mysql:8.0.23
+    env:
+      MYSQL_USER: docker
+      MYSQL_PASS: password
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_DATABASE: "internship"

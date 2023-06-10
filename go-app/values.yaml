@@ -1,0 +1,16 @@
+app:
+  replicas: 1
+  container:
+    port: 9090
+    image: ahmedsoliman202/go-app
+    env:
+      MYSQL_USER: docker
+      MYSQL_PASS: password
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+
+hpa:
+  enable: false
+  minReplicas: 4
+  maxReplicas: 10
+  percentage: 50
