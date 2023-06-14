@@ -8,5 +8,6 @@ spec:
   ports:
     - protocol: "TCP"
       port: {{ .Values.app.container.port }} # The port that the service is running on in the cluster
-      targetPort: {{ .Values.app.container.port }} # The port exposed by the service
+      targetPort: {{ .Values.app.service.target_port }} # The port exposed by the service
+      nodePort: {{ .Values.app.service.node_port }} # The port exposed by the service
   type: NodePort # type of the service.

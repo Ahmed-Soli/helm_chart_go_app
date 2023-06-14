@@ -1,18 +1,11 @@
-# Define a 'Service' To Expose mysql to Other Services
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql  # DNS name
-  labels:
-    app: mysql
-    tier: database
+  name: mysql
 spec:
   ports:
-    # - protocol: TCP
-    - port:  {{ .Values.app.container.port }}
-      targetPort:  {{ .Values.app.container.port }}
-  selector:       # mysql Pod Should contain same labels
+  - port: {{ .Values.app.mysql_data.container_port }}
+  selector:
     app: mysql
-    tier: database
-  # clusterIP: None  # We Use DNS, Thus ClusterIP is not relevant
-  type: ClusterIP # type of the service.
+  clusterIP: None

@@ -27,4 +27,12 @@ spec:
           - name: MYSQL_HOST
             value: {{ .Values.app.container.env.MYSQL_HOST }}
           - name: MYSQL_PORT
-            value: {{ .Values.app.container.env.MYSQL_PORT }}
+            # value: {{ .Values.app.container.env.MYSQL_PORT }}
+            value: "3306" # the helm yaml values is evaluating this to an int with gives an error in the Struct
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2"
